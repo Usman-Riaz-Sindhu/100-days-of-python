@@ -1,0 +1,23 @@
+def is_leap_year(year):
+    """
+    Determines if a given year is a leap year.
+    A year is a leap year if it is divisible by 4, but not by 100,
+    unless it is also divisible by 400.
+    Args:
+        year (int): The year to check.
+    Returns:
+        bool: True if the year is a leap year, False otherwise.
+    """
+    if year % 4 == 0:
+        if year % 100 == 0:
+            if year % 400 == 0:
+                return True
+            else:
+                return False
+        else:
+            return True
+    else:
+        return False
+
+while ask := input("Do you want to check a leap year? (yes/no): ").lower() == "yes":    
+    print(is_leap_year(int(input("Enter a year: "))))
