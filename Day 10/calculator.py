@@ -1,18 +1,47 @@
-num1 = int(input("Enter the first number: "))
-task = input("Enter the task you want to perform (+, -, *, /): ")
-num2 = int(input("Enter the second number: "))
-retry = True
-while retry == True:
-    def calculator(num1, num2, task):
-        if task == "+":
-            return num1 + num2
-        elif task == "-":
-            return num1 - num2
-        elif task == "*":
-            return num1 * num2
-        elif task == "/":
-            return num1 / num2
-        else:
-            print("Invalid task. Please enter a valid task.")
-            
-    
+def add(n1, n2):
+    return n1 + n2
+
+def subtract(n1, n2):
+    return n1 - n2
+
+def multiply(n1, n2):
+    return n1 * n2
+
+def divide(n1, n2):
+    return n1 / n2
+
+
+operations = {
+    "+": add,
+    "-": subtract,
+    "*": multiply,
+    "/": divide,
+}
+
+num1 = float(input("What's the first number?: "))
+
+should_continue = True
+
+while should_continue:
+
+    print("Available operations:")
+    for symbol in operations:
+        print(symbol)
+
+    operation_symbol = input("Pick an operation: ")
+    num2 = float(input("What's the next number?: "))
+
+    calculation_function = operations[operation_symbol]
+    answer = calculation_function(num1, num2)
+
+    print(f"{num1} {operation_symbol} {num2} = {answer}")
+
+    choice = input(
+        f"Type 'y' to continue calculating with {answer}, or type 'n' to start a new calculation: "
+    )
+
+    if choice == "y":
+        num1 = answer
+    else:
+        should_continue = False
+        print("Calculator ended.")
