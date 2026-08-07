@@ -39,7 +39,7 @@ while should_continue:
     choice = input(
         f"Type 'y' to continue calculating with {answer}, or type 'n' to start a new calculation: "
     )
-
+    
     if choice == "y":
         num1 = answer
     else:
